@@ -32,6 +32,11 @@ gem 'rolify'
 gem 'paperclip', '~> 4.3'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
+gem 'therubyracer'
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
