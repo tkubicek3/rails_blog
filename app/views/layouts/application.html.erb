@@ -2,21 +2,26 @@
 <html>
 <head>
   <title>Blogapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <p class="navbar-text pull-right">
-  <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
+
+<div class="collapse navbar-collapse" id="navbar-collapse-1" style="padding: 10px 20px;">
+  <ul class="nav navbar-nav navbar-right">
+    <% if user_signed_in? %>
+        <li style="font-weight: bold"><%= link_to "Signed: #{current_user.email}", root_path %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <li class="image round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+    <% else %>
+        <li><%= link_to 'Login', new_user_session_path %></li>
+    <% end %>
+  </ul>
+</div>
 
 <% if notice %>
     <p class="alert alert-success" id="notice"><%= notice %></p>
