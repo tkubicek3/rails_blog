@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 [:admin, :user].each do |role|
-  Role.find_or_create_by(name: role, without_protection: true)
+  Role.find_or_create_by(name: role)
 end
