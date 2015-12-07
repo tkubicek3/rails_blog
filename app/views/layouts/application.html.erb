@@ -10,17 +10,21 @@
 
 <p class="navbar-text pull-right">
 
-<div class="collapse navbar-collapse" id="navbar-collapse-1" style="padding: 10px 20px;">
-  <ul class="nav navbar-nav navbar-right">
-    <% if user_signed_in? %>
-        <li style="font-weight: bold"><%= link_to "Signed: #{current_user.email}", root_path %></li>
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+  <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="stronger"><%= link_to 'Home', root_path %></li>
+        <% if current_user.has_role? :admin %>
+            <li><%= link_to 'Users list', users_index_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="stronger"><%= link_to "Signed: #{current_user.email}", '#' %></li>
         <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <li class="image round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
-    <% else %>
-        <li><%= link_to 'Login', new_user_session_path %></li>
-    <% end %>
-  </ul>
+      </ul>
+  <% end %>
 </div>
 
 <% if notice %>

@@ -40,3 +40,11 @@
 img {
     width: 100%
 }
+
+.stronger {
+    font-weight: bold
+}
+
+html {
+    padding: 20px 20px 20px 20px;
+}
