@@ -1,3 +1,4 @@
+# UsersController
 class UsersController < ApplicationController
   def index
     # Lepsi reseni?

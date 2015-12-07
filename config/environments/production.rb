@@ -1,6 +1,4 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -31,18 +29,12 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
-
-  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -61,7 +53,6 @@ Rails.application.configure do
   # config.action_controller.asset_host = 'http://assets.example.com'
 
   # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -78,23 +69,25 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = {:host => 'https://sheltered-fortress-4066.herokuapp.com'}
+  config.action_mailer.default_url_options =
+    { host: 'https://sheltered-fortress-4066.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => "gmail.com",
-      :user_name => "tkubicek4@gmail.com",
-      :password => "1234FakePass", #Expire 31. 1. 2016
-      :authentication => :plain,
-      :enable_starttls_auto => true
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'tkubicek4@gmail.com',
+    password: '1234FakePass', # Expire 31. 1. 2016
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
-                                          :email => {
-                                              :email_prefix => "[Notifier] ",
-                                              :sender_address => %{"Exception in rails homework" <notifier@example.com>},
-                                              :exception_recipients => %w{tkubicek4@gmail.com}
+                                          email: {
+                                            email_prefix: '[Notifier] ',
+                                            sender_address:
+                                                  %("" <notifier@example.com>),
+                                            exception_recipients:
+                                                  %w(tkubicek4@gmail.com)
                                           }
-
 end
