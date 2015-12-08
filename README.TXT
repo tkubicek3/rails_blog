@@ -1,6 +1,6 @@
 Heroku URL:
-https://sheltered-fortress-4066.herokuapp.com/users/sign_in
+https://sheltered-fortress-4066.herokuapp.com
 
 Admin:
 tkubicek4@gmail.com
-1234FakePass
+FakePass1234
